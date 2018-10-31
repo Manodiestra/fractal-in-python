@@ -14,7 +14,6 @@ def getColorFromGradient(z):
     c = complex(-1, 0) # c0
     
     # TODO: I feel bad about all of the global variables I'm using.
-    #       There must be a better way...
     global grad
     
     # TODO: Make it easier to support more colors in the gradient

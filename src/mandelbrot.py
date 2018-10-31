@@ -147,7 +147,7 @@ images = {
             },
         }
 
-image = 'spiral0'
+image = 'leaf'
 
 
 # Set up the GUI so that we can paint the fractal image on the screen
