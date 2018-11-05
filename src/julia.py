@@ -38,11 +38,6 @@ def makePicture(f, imagename):
     
     # Figure out how the boundaries of the PhotoImage relate to coordinates on
     # the imaginary plane.
-    minimum = ( (f['centerX'] - (f['axisLength'] / 2.0)), 
-            (f['centerY'] - (f['axisLength'] / 2.0)))
-
-    maximum = ( (f['centerX'] + (f['axisLength'] / 2.0)),
-            (f['centerY'] + (f['axisLength'] / 2.0)))
 
     # At this scale, how much length and height on the imaginary plane does one
     # pixel take?
@@ -54,7 +49,7 @@ def makePicture(f, imagename):
             # Update the status bar each time we complete 1/64th of the rows
             dots = c // fraction
             percent = c / 1024
-            print(f"{imagename} (1024x1024) {'=' * dots}{'_' * (64 - dots)} {percent:.0%}", end='\r', file=sys.stderr)
+            print(f"{imagename} (1024x1024) {'=' * dots000}{'_' * (64 - dots)} {percent:.0%}", end='\r', file=sys.stderr)
         for r in range(1024):
             x = minimum[0] + c * size
             y = minimum[1] + r * size

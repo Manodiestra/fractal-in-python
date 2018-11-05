@@ -1,3 +1,5 @@
+from .Gradient import gradient
+
 class Color():
     """A class to represent RGB colors
 
@@ -52,14 +54,6 @@ class Color():
         return self.__str__()
 
 
-def gradient(start, stop, steps):
-    dRed = (stop.r - start.r) / (steps - 1)
-    dGrn = (stop.g - start.g) / (steps - 1)
-    dBlu = (stop.b - start.b) / (steps - 1)
-    return list(
-        map(lambda n: Color((n * dRed) + start.r, (n * dGrn) + start.g, (n * dBlu) + start.b) , range(steps)))
-
-
 # Test code to demonstrate how a Color may be used
 if __name__ == '__main__':
     red   = Color(255, 0, 0)
@@ -68,7 +62,7 @@ if __name__ == '__main__':
     green = Color(0, 255, 0)
     print(f"green is {green}")
 
-    blue  = Color(0, 0, 255)
+    blue = Color(0, 0, 255)
     print(f"blue is {blue}")
 
-    print(gradient(red, green, 512))
+    print(gradient(red, green, 255))
