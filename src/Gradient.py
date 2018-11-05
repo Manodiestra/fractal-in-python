@@ -1,4 +1,4 @@
-from .Color import Color
+import Color
 
 
 def gradient(start, stop, steps):
@@ -6,4 +6,4 @@ def gradient(start, stop, steps):
     dGrn = (stop.g - start.g) / (steps - 1)
     dBlu = (stop.b - start.b) / (steps - 1)
     return list(
-        map(lambda n: Color((n * dRed) + start.r, (n * dGrn) + start.g, (n * dBlu) + start.b), range(steps)))
+        map(lambda n: Color.Color((n * dRed) + start.r, (n * dGrn) + start.g, (n * dBlu) + start.b), range(steps)))

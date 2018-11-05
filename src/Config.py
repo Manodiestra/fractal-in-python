@@ -19,13 +19,10 @@ def getConfig():
 
 def makeObj(name):
     config_dict = {}
-    file = open("../data/" + name, "r")
+    file = open("data/" + name, "r")
     for line in file:
         parts = line.split(' ')
-        config_dict[parts[0]] = parts[len(parts)-1]
+        config_dict[parts[0]] = parts[len(parts)-1].replace("\n", "")
     print(config_dict)
     return config_dict
 
-
-config_file = getConfig()
-makeObj(config_file)

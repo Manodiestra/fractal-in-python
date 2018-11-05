@@ -1,12 +1,12 @@
-from .Config import makeObj, getConfig
-from .ImagePainter import paint
-from .Gradient import gradient
-from .Color import Color
+import Config
+import ImagePainter
+import Gradient
+import Color
 from tkinter import Tk, Canvas, mainloop
 
 
-def makeConfigDict():
-    return makeObj()
+def makeConfigDict(frac):
+    return Config.makeObj(frac)
 
 
 def getSize(config_dict):
@@ -26,27 +26,40 @@ def getFileExtension():
 
 
 def getGradient(config_dictionary):
-    steps = config_dictionary["Iterations:"]
-    start_color = Color(200, 0, 200)
-    end_color = Color(11, 300, 22)
-    return gradient(start_color, end_color, steps)
+    steps = int(config_dictionary["Iterations:"])
+    start_color = Color.Color(255, 0, 0)
+    end_color = Color.Color(0, 300, )
+    return Gradient.gradient(start_color, end_color, steps)
 
 
-image = getConfig()
-config_dict = makeConfigDict()
-img_size = getSize(config_dict)
+def nameImage():
+    getting_name = True
+    while getting_name:
+        image_name = input("What do you want to\nname the output file?\n")
+        if type(image_name) == str:
+            print("You selected " + image_name)
+            getting_name = False
+        else:
+            print("The file name cannot be a number or symbol.")
+    return image_name
+
+
+frac_name = Config.getConfig()
+image = nameImage()
+config_dict = makeConfigDict(frac_name)
+img_size = int(getSize(config_dict))
 file_extension = getFileExtension()
 myGradient = getGradient(config_dict)
 
 window = Tk()
-img = paint(config_dict, myGradient)
+img = ImagePainter.paint(config_dict, myGradient, image)
 
 # Display the image on the screen
-canvas = Canvas(window, width=img_size, height=img_size, bg=gradient[0])
+canvas = Canvas(window, width=img_size, height=img_size, bg=myGradient[0])
 canvas.pack()
 canvas.create_image((img_size//2, img_size//2), image=img, state="normal")
 
 # Save the picture to a file
 img.write(image + file_extension)
-print(f"Wrote picture {i}.gif")
+print(f"Wrote picture {image}.gif")
 mainloop()

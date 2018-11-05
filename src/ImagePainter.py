@@ -1,14 +1,15 @@
-from .MyMandelbrot import pixelPicker
-from .MyJulia import pixelPicker2
+import MyMandelbrot
+import MyJulia
+import sys
 from tkinter import PhotoImage
 
 
-def paint(config_dict, myGradient):
-    img_size = config_dict["pixels:"]
+def paint(config_dict, myGradient, imagename):
+    img_size = int(config_dict["pixels:"])
     img_type = config_dict["type:"]
-    center_x = config_dict["centerX:"]
-    center_y = config_dict["centerY:"]
-    axis_length = config_dict["axisLength:"]
+    center_x = float(config_dict["centerX:"])
+    center_y = float(config_dict["centerY:"])
+    axis_length = float(config_dict["axisLength:"])
     img = PhotoImage(width=img_size, height=img_size)
 
     minimum = ((center_x - (axis_length / 2.0)),
@@ -29,9 +30,9 @@ def paint(config_dict, myGradient):
             x = minimum[0] + col * pixelsize
             y = minimum[1] + row * pixelsize
             if img_type == "mandelbrot":
-                color = myGradient[pixelPicker(complex(x, y))]
+                color = myGradient[MyMandelbrot.pixelPicker(complex(x, y))]
             else:
-                color = myGradient[pixelPicker2(complex(x, y))]
+                color = myGradient[MyJulia.pixelPicker2(complex(x, y))]
             img.put(color, (col, row))
     print(f"{imagename} ({img_size}x{img_size}) ================================================================ 100%",
           file=sys.stderr)

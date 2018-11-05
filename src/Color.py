@@ -1,4 +1,4 @@
-from .Gradient import gradient
+import Gradient
 
 class Color():
     """A class to represent RGB colors
@@ -65,4 +65,4 @@ if __name__ == '__main__':
     blue = Color(0, 0, 255)
     print(f"blue is {blue}")
 
-    print(gradient(red, green, 255))
+    print(Gradient.gradient(red, green, 255))
