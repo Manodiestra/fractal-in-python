@@ -1,8 +1,8 @@
-from .Config import makeObj
+from .Config import makeObj, getConfig
 from .ImagePainter import paint
 from .Gradient import gradient
 from .Color import Color
-from tkinter import Tk, Canvas, PhotoImage, mainloop
+from tkinter import Tk, Canvas, mainloop
 
 
 def makeConfigDict():
@@ -25,22 +25,21 @@ def getFileExtension():
     return extension_name
 
 
+def getGradient(config_dictionary):
+    steps = config_dictionary["Iterations:"]
+    start_color = Color(200, 0, 200)
+    end_color = Color(11, 300, 22)
+    return gradient(start_color, end_color, steps)
 
 
+image = getConfig()
 config_dict = makeConfigDict()
 img_size = getSize(config_dict)
 file_extension = getFileExtension()
-start_color = Color(200, 0, 200)
-end_color = Color(11, 300, 22)
-this_step = config_dict["Iterations:"]
-paint()
-
-
-
+myGradient = getGradient(config_dict)
 
 window = Tk()
-img = PhotoImage(width=img_size, height=img_size)
-makePicture(images[image], image)
+img = paint(config_dict, myGradient)
 
 # Display the image on the screen
 canvas = Canvas(window, width=img_size, height=img_size, bg=gradient[0])

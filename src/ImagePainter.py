@@ -1,15 +1,20 @@
-from tkinter import Tk, Canvas, PhotoImage, mainloop
 from .MyMandelbrot import pixelPicker
 from .MyJulia import pixelPicker2
+from tkinter import PhotoImage
 
-def paint(fractal, imagename, config_dict):
+
+def paint(config_dict, myGradient):
     img_size = config_dict["pixels:"]
     img_type = config_dict["type:"]
+    center_x = config_dict["centerX:"]
+    center_y = config_dict["centerY:"]
+    axis_length = config_dict["axisLength:"]
+    img = PhotoImage(width=img_size, height=img_size)
 
-    minimum = ((fractal['centerX'] - (fractal['axisLength'] / 2.0)),
-               (fractal['centerY'] - (fractal['axisLength'] / 2.0)))
-    maximum = ((fractal['centerX'] + (fractal['axisLength'] / 2.0)),
-               (fractal['centerY'] + (fractal['axisLength'] / 2.0)))
+    minimum = ((center_x - (axis_length / 2.0)),
+               (center_y - (axis_length / 2.0)))
+    maximum = ((center_x + (axis_length / 2.0)),
+               (center_y + (axis_length / 2.0)))
 
     pixelsize = abs(maximum[0] - minimum[0]) / img_size
     load_chunck = 64
@@ -24,9 +29,9 @@ def paint(fractal, imagename, config_dict):
             x = minimum[0] + col * pixelsize
             y = minimum[1] + row * pixelsize
             if img_type == "mandelbrot":
-                color = gradient[pixelPicker(complex(x, y))]
+                color = myGradient[pixelPicker(complex(x, y))]
             else:
-                color = pixelPicker2(complex(x, y))
+                color = myGradient[pixelPicker2(complex(x, y))]
             img.put(color, (col, row))
     print(f"{imagename} ({img_size}x{img_size}) ================================================================ 100%",
           file=sys.stderr)
