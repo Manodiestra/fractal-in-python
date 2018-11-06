@@ -5,3 +5,4 @@ def pixelPicker(c, iterations):
         if abs(z) > 2:
             return i
     return iterations - 1
+
