@@ -1,5 +1,5 @@
 import glob
-files = ["elephants.frac", "fulljulia.frac", "fullmandelbrot.frac", "hourglass.frac", "lakes.frac", "leaf.frac", "seahouse.frac", "spiral0.frac", "spiral1.frac"]
+files = ["elephants.frac", "fulljulia.frac", "fullmandelbrot.frac", "hourglass.frac", "lakes.frac", "leaf.frac", "seahorse.frac", "spiral0.frac", "spiral1.frac"]
 
 
 def getConfig():
