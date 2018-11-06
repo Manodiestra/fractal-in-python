@@ -10,6 +10,7 @@ def paint(config_dict, myGradient, imagename):
     center_x = float(config_dict["centerX:"])
     center_y = float(config_dict["centerY:"])
     axis_length = float(config_dict["axisLength:"])
+    grad_size = int(config_dict["iterations:"])
     img = PhotoImage(width=img_size, height=img_size)
 
     minimum = ((center_x - (axis_length / 2.0)),
@@ -30,9 +31,9 @@ def paint(config_dict, myGradient, imagename):
             x = minimum[0] + col * pixelsize
             y = minimum[1] + row * pixelsize
             if img_type == "mandelbrot":
-                color = myGradient[mandelbrot.pixelPicker(complex(x, y))]
+                color = myGradient[mandelbrot.pixelPicker(complex(x, y), grad_size)]
             else:
-                color = myGradient[julia.pixelPicker2(complex(x, y))]
+                color = myGradient[julia.pixelPicker2(complex(x, y), grad_size)]
             img.put(color, (col, row))
     print(f"{imagename} ({img_size}x{img_size}) ================================================================ 100%",
           file=sys.stderr)
