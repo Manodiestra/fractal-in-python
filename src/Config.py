@@ -21,7 +21,7 @@ def makeObj(name):
     config_dict = {}
     file = open("data/" + name, "r")
     for line in file:
-        parts = line.split(' ')
+        parts = line.lower().split(' ')
         config_dict[parts[0]] = parts[len(parts)-1].replace("\n", "")
     return config_dict
 

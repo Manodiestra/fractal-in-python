@@ -6,10 +6,10 @@ from tkinter import PhotoImage
 
 def paint(config_dict, myGradient, imagename):
     img_size = int(config_dict["pixels:"])
-    img_type = config_dict["type:"]
-    center_x = float(config_dict["centerX:"])
-    center_y = float(config_dict["centerY:"])
-    axis_length = float(config_dict["axisLength:"])
+    img_type = config_dict["type:"].lower()
+    center_x = float(config_dict["centerx:"])
+    center_y = float(config_dict["centery:"])
+    axis_length = float(config_dict["axislength:"])
     grad_size = int(config_dict["iterations:"])
     img = PhotoImage(width=img_size, height=img_size)
 
@@ -27,14 +27,14 @@ def paint(config_dict, myGradient, imagename):
             pips = col // portion
             pct = col / img_size
             print(f"{imagename} (640x640) {'=' * pips}{'_' * (64 - pips)} {pct:.0%}", end='\r', file=sys.stderr)
-        for row in range(640):
+        for row in range(img_size):
             x = minimum[0] + col * pixelsize
             y = minimum[1] + row * pixelsize
             if img_type == "mandelbrot":
                 color = myGradient[mandelbrot.pixelPicker(complex(x, y), grad_size)]
             else:
                 color = myGradient[julia.pixelPicker2(complex(x, y), grad_size)]
-            img.put(color, (col, row))
+            img.put(str(color), (col, row))
     print(f"{imagename} ({img_size}x{img_size}) ================================================================ 100%",
           file=sys.stderr)
     return img

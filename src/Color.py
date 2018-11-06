@@ -53,16 +53,3 @@ class Color():
     def __repr__(self):
         return self.__str__()
 
-
-# Test code to demonstrate how a Color may be used
-if __name__ == '__main__':
-    red   = Color(255, 0, 0)
-    print(f"red is {red}")
-
-    green = Color(0, 255, 0)
-    print(f"green is {green}")
-
-    blue = Color(0, 0, 255)
-    print(f"blue is {blue}")
-
-    print(Gradient.gradient(red, green, 255))
