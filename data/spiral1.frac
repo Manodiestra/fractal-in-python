@@ -3,4 +3,4 @@ pixels: 640
 centerX: -0.747
 centery: 0.1075
 axisLength: 0.002
-Iterations: 100
+iterations: 100
