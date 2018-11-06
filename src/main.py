@@ -16,7 +16,7 @@ def getSize(config_dict):
 def getFileExtension():
     getting_type = True
     while getting_type:
-        extension_name = input("What file type would\nyou like to save the image as?\n")
+        extension_name = input("\nWhat file type would\nyou like to save the image as?\n")
         if extension_name == ".png" or extension_name == ".gif":
             print("You selected " + extension_name)
             getting_type = False
@@ -26,16 +26,16 @@ def getFileExtension():
 
 
 def getGradient(config_dictionary):
-    steps = int(config_dictionary["Iterations:"])
+    steps = int(config_dictionary["iterations:"])
     start_color = Color.Color(255, 0, 0)
-    end_color = Color.Color(0, 300, )
+    end_color = Color.Color(0, 0, 255)
     return Gradient.gradient(start_color, end_color, steps)
 
 
 def nameImage():
     getting_name = True
     while getting_name:
-        image_name = input("What do you want to\nname the output file?\n")
+        image_name = input("\nWhat do you want to\nname the output file?\n(do not include the extension)\n")
         if type(image_name) == str:
             print("You selected " + image_name)
             getting_name = False

@@ -6,7 +6,7 @@ def getConfig():
 #    files = glob.glob('../data/*.frac')
     getting_name = True
     while getting_name:
-        config_name = input("What is the name of the\nconfig file you want to use?\n")
+        config_name = input("\nWhat is the name of the\nconfig file you want to use?\n")
         if config_name in files:
             print("You selected " + config_name)
             getting_name = False
@@ -23,6 +23,5 @@ def makeObj(name):
     for line in file:
         parts = line.split(' ')
         config_dict[parts[0]] = parts[len(parts)-1].replace("\n", "")
-    print(config_dict)
     return config_dict
 
