@@ -28,7 +28,7 @@ def getFileExtension():
 def getGradient(config_dictionary):
     steps = int(config_dictionary["iterations:"])
     start_color = Color.Color(255, 0, 0)
-    end_color = Color.Color(0, 0, 255)
+    end_color = Color.Color(0, 0, 277)
     return Gradient.gradient(start_color, end_color, steps)
 
 
@@ -43,7 +43,7 @@ def nameImage():
             print("The file name cannot be a number or symbol.")
     return image_name
 
-
+# Run finctions and gather data
 frac_name = Config.getConfig()
 image = nameImage()
 config_dict = makeConfigDict(frac_name)
@@ -51,10 +51,11 @@ img_size = int(getSize(config_dict))
 file_extension = getFileExtension()
 myGradient = getGradient(config_dict)
 
-window = Tk()
+# Generate the image
 img = ImagePainter.paint(config_dict, myGradient, image)
 
 # Display the image on the screen
+window = Tk()
 canvas = Canvas(window, width=img_size, height=img_size, bg=myGradient[0])
 canvas.pack()
 canvas.create_image((img_size//2, img_size//2), image=img, state="normal")
