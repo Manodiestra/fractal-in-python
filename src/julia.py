@@ -5,3 +5,10 @@ def pixelPicker2(z, iterations):
         if abs(z) > 2:
             return i
     return iterations - 1
+
+
+def count(z):
+    for i in range(iterations):
+        z = z * z + c
+        if abs(z) > 2:
+            return i
