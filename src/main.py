@@ -5,10 +5,6 @@ import Color
 from tkinter import Tk, Canvas, mainloop
 
 
-def makeConfigDict(frac):
-    return Config.makeObj(frac)
-
-
 def getSize(config_dict):
     return config_dict["pixels:"]
 
@@ -43,10 +39,10 @@ def nameImage():
             print("The file name cannot be a number or symbol.")
     return image_name
 
-# Run finctions and gather data
-frac_name = Config.getConfig()
+
+# Run functions and gather data
 image = nameImage()
-config_dict = makeConfigDict(frac_name)
+config_dict = getConfigDict()
 img_size = int(getSize(config_dict))
 file_extension = getFileExtension()
 myGradient = getGradient(config_dict)
