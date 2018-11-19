@@ -2,6 +2,7 @@ import Config
 import ImagePainter
 import Gradient
 import Color
+import sys
 from tkinter import Tk, Canvas, mainloop
 
 
@@ -29,15 +30,10 @@ def getGradient(config_dictionary):
 
 
 def nameImage():
-    getting_name = True
-    while getting_name:
-        image_name = input("\nWhat do you want to\nname the output file?\n(do not include the extension)\n")
-        if type(image_name) == str:
-            print("You selected " + image_name)
-            getting_name = False
-        else:
-            print("The file name cannot be a number or symbol.")
-    return image_name
+    tempString = sys.argv[1]
+    tempList = tempString.split(".")
+    print(tempList[0])
+    return tempList[0]
 
 
 # Run functions and gather data
