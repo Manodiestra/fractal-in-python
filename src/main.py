@@ -18,7 +18,7 @@ def getFileExtension():
             print("You selected " + extension_name)
             getting_type = False
         else:
-            print("The supported file extension are .png or .gif\n")
+            print("Supported file extensions are .png or .gif\n")
     return extension_name
 
 
