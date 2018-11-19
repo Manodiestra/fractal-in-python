@@ -1,6 +1,5 @@
-import glob
 import sys
-#    files = glob.glob('../data/*.frac')
+
 
 def getConfigDict():
     config_dict = {}
