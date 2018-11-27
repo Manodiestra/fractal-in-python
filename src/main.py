@@ -38,7 +38,7 @@ def nameImage():
 
 # Run functions and gather data
 image = nameImage()
-config_dict = getConfigDict()
+config_dict = Config.getConfigDict()
 img_size = int(getSize(config_dict))
 file_extension = getFileExtension()
 myGradient = getGradient(config_dict)
