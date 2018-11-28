@@ -1,15 +1,15 @@
 from Fractal import Fractal
 
 
-class julia(Fractal):
+class mandelbrot3(Fractal):
 
     def __init__(self):
         super().__init__()
 
-    def count(self, z, iterations):
-        c = complex(-1, 0) # c0
+    def count(self, c, iterations):
+        z = complex(0, 0) # z0
         for i in range(iterations):
-            z = z * z + c
+            z = z * z * z + c
             if abs(z) > 2:
                 return i
         return iterations - 1

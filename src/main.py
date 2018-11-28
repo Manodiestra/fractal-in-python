@@ -1,12 +1,8 @@
 import Config
 import ImagePainter
-import Gradient
-import Color
+import GradientFactory
+import sys
 from tkinter import Tk, Canvas, mainloop
-
-
-def makeConfigDict(frac):
-    return Config.makeObj(frac)
 
 
 def getSize(config_dict):
@@ -21,32 +17,25 @@ def getFileExtension():
             print("You selected " + extension_name)
             getting_type = False
         else:
-            print("The supported file extension are .png or .gif\n")
+            print("Supported file extensions are .png or .gif\n")
     return extension_name
 
 
 def getGradient(config_dictionary):
     steps = int(config_dictionary["iterations:"])
-    start_color = Color.Color(255, 0, 0)
-    end_color = Color.Color(0, 0, 277)
-    return Gradient.gradient(start_color, end_color, steps)
+    gradient = GradientFactory.makeGradient()
+    return gradient.gradient(steps)
 
 
 def nameImage():
-    getting_name = True
-    while getting_name:
-        image_name = input("\nWhat do you want to\nname the output file?\n(do not include the extension)\n")
-        if type(image_name) == str:
-            print("You selected " + image_name)
-            getting_name = False
-        else:
-            print("The file name cannot be a number or symbol.")
-    return image_name
+    tempString = sys.argv[1]
+    tempList = tempString.split(".")
+    return tempList[0]
 
-# Run finctions and gather data
-frac_name = Config.getConfig()
+
+# Run functions and gather data
 image = nameImage()
-config_dict = makeConfigDict(frac_name)
+config_dict = Config.getConfigDict()
 img_size = int(getSize(config_dict))
 file_extension = getFileExtension()
 myGradient = getGradient(config_dict)

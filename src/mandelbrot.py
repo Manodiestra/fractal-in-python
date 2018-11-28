@@ -1,9 +1,16 @@
-def pixelPicker(c, iterations):
-    z = complex(0, 0) # z0
+from Fractal import Fractal
 
-    for i in range(iterations):
-        z = z * z + c
-        if abs(z) > 2:
-            return i
-    return iterations - 1
+
+class Mandelbrot(Fractal):
+
+    def __init__(self):
+        super().__init__()
+
+    def count(self, c, iterations):
+        z = complex(0, 0) # z0
+        for i in range(iterations):
+            z = z * z + c
+            if abs(z) > 2:
+                return i
+        return iterations - 1
 
