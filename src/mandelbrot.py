@@ -1,5 +1,6 @@
 from Fractal import Fractal
 
+
 class Mandelbrot(Fractal):
 
     def __init__(self):

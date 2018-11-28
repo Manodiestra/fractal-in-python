@@ -25,10 +25,11 @@ def paint(config_dict, myGradient, imagename):
             # Update the status bar each time we complete 1/64th of the rows
             pips = col // portion
             pct = col / img_size
-            print(f"{imagename} (640x640) {'=' * pips}{'_' * (64 - pips)} {pct:.0%}", end='\r', file=sys.stderr)
+            print(f"{imagename} ({img_size}x{img_size}) {'=' * pips}{'_' * (64 - pips)} {pct:.0%}", end='\r', file=sys.stderr)
         for row in range(img_size):
             x = minimum[0] + col * pixelsize
             y = minimum[1] + row * pixelsize
+            #print(fractal.count(complex(x, y), grad_size))
             color = myGradient[fractal.count(complex(x, y), grad_size)]
             img.put(str(color), (col, row))
     print(f"{imagename} ({img_size}x{img_size}) ================================================================ 100%",

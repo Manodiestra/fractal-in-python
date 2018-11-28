@@ -5,11 +5,11 @@ import sys
 
 def makeGradient():
     # Make and return a gradient object.
-    if len(sys.argv) > 3:
-        if sys.argv[3] == "Greyscale":
+    if len(sys.argv) >= 3:
+        if sys.argv[2] == "Greyscale":
             g = GreyScale()
             return g
-        elif sys.argv[3] == "RedBlue":
+        elif sys.argv[2] == "RedBlue":
             g: RedBlue = RedBlue()
             return g
         else:
