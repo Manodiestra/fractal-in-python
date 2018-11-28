@@ -1,8 +1,12 @@
+import Gradient
 import Color
 
-class Gradient:
-    
+
+class GreyScale(Gradient):
+
     def gradient(start, stop, steps):
+        start = 0
+        stop = 255
         dRed = (stop.r - start.r) / (steps - 1)
         dGrn = (stop.g - start.g) / (steps - 1)
         dBlu = (stop.b - start.b) / (steps - 1)

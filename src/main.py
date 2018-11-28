@@ -2,6 +2,7 @@ import Config
 import ImagePainter
 import Gradient
 import Color
+import FractalFactory
 import sys
 from tkinter import Tk, Canvas, mainloop
 
@@ -32,13 +33,13 @@ def getGradient(config_dictionary):
 def nameImage():
     tempString = sys.argv[1]
     tempList = tempString.split(".")
-    print(tempList[0])
     return tempList[0]
 
 
 # Run functions and gather data
 image = nameImage()
 config_dict = Config.getConfigDict()
+fractal = FractalFactory.makeFractal(config_dict)
 img_size = int(getSize(config_dict))
 file_extension = getFileExtension()
 myGradient = getGradient(config_dict)
