@@ -2,8 +2,7 @@
 class Fractal:
 
     def __init__(self):
-        print("Do not make a Fractal object. It is abstract.")
+        pass
 
-    def count(self):
+    def count(self, c, iterations):
         return None
-

@@ -8,6 +8,12 @@ def makeFractal(config_dict):
     witch = random.randint(0, 2)
     type = config_dict["type:"].lower()
     if type == mandelbrot:
-
+        if witch == 0:
+            m = mandelbrot.Mandelbrot()
+        else:
+            m = mandelbrot3.mandelbrot3()
+        return m
     else:
+        j = julia.julia()
+        return j
         

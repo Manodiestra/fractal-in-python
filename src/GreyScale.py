@@ -1,14 +1,20 @@
-import Gradient
+from Gradient import Gradient
 import Color
 
 
 class GreyScale(Gradient):
 
-    def gradient(start, stop, steps):
-        start = 0
-        stop = 255
-        dRed = (stop.r - start.r) / (steps - 1)
-        dGrn = (stop.g - start.g) / (steps - 1)
-        dBlu = (stop.b - start.b) / (steps - 1)
+    def __init__(self):
+        self.start_b = 0
+        self.start_r = 0
+        self.start_g = 0
+        self.stop_b = 255
+        self.stop_r = 255
+        self.stop_g = 255
+
+    def gradient(self, steps):
+        dRed = (self.stop_r - self.start_r) / (steps - 1)
+        dGrn = (self.stop_g - self.start_g) / (steps - 1)
+        dBlu = (self.stop_b - self.start_b) / (steps - 1)
         return list(
-            map(lambda n: Color.Color((n * dRed) + start.r, (n * dGrn) + start.g, (n * dBlu) + start.b), range(steps)))
+            map(lambda n: Color.Color((n * dRed) + self.start_r, (n * dGrn) + self.start_g, (n * dBlu) + self.start_b), range(steps)))
