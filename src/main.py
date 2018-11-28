@@ -52,10 +52,10 @@ file_extension = getFileExtension()
 myGradient = getGradient(config_dict)
 
 # Generate the image
+window = Tk()
 img = ImagePainter.paint(config_dict, myGradient, image)
 
 # Display the image on the screen
-window = Tk()
 canvas = Canvas(window, width=img_size, height=img_size, bg=myGradient[0])
 canvas.pack()
 canvas.create_image((img_size//2, img_size//2), image=img, state="normal")
