@@ -1,12 +1,11 @@
-import mandelbrot
-import julia
+import FractalFactory
 import sys
 from tkinter import PhotoImage
 
 
 def paint(config_dict, myGradient, imagename):
     img_size = int(config_dict["pixels:"])
-    img_type = config_dict["type:"].lower()
+    fractal = FractalFactory.makeFractal(config_dict)
     center_x = float(config_dict["centerx:"])
     center_y = float(config_dict["centery:"])
     axis_length = float(config_dict["axislength:"])
@@ -30,10 +29,7 @@ def paint(config_dict, myGradient, imagename):
         for row in range(img_size):
             x = minimum[0] + col * pixelsize
             y = minimum[1] + row * pixelsize
-            if img_type == "mandelbrot":
-                color = myGradient[mandelbrot.pixelPicker(complex(x, y), grad_size)]
-            else:
-                color = myGradient[julia.pixelPicker2(complex(x, y), grad_size)]
+            color = myGradient[fractal.count(complex(x, y), grad_size)]
             img.put(str(color), (col, row))
     print(f"{imagename} ({img_size}x{img_size}) ================================================================ 100%",
           file=sys.stderr)

@@ -1,8 +1,10 @@
-import Fractal
+from Fractal import Fractal
 
-class mandelbrot3:
 
-    #def __init__(self):
+class mandelbrot3(Fractal):
+
+    def __init__(self):
+        super().__init__()
 
     def count(self, c, iterations):
         z = complex(0, 0) # z0

@@ -1,10 +1,10 @@
-import Fractal
+from Fractal import Fractal
 
 
 class julia(Fractal):
 
-    #def __init__(self):
-
+    def __init__(self):
+        super().__init__()
 
     def count(self, z, iterations):
         c = complex(-1, 0) # c0
