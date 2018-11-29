@@ -5,12 +5,15 @@ class mandelbrot3(Fractal):
 
     def __init__(self):
         super().__init__()
+        self.z = complex(0, 0)
+        self.c = complex(0, -1)
 
     def count(self, c, iterations):
-        z = complex(0, 0) # z0
+        self.c = c
+        self.z = complex(0, 0)
         for i in range(iterations):
-            z = z * z * z + c
-            if abs(z) > 2:
+            self.z = self.z * self.z * self.z + self.c
+            if abs(self.z) > 2:
                 return i
         return iterations - 1
 

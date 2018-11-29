@@ -5,12 +5,15 @@ class julia(Fractal):
 
     def __init__(self):
         super().__init__()
+        self.z = complex(0, 0)
+        self.c = complex(0, -1)
 
     def count(self, z, iterations):
-        c = complex(-1, 0) # c0
+        self.z = z
+        self.c = complex(0, -1)
         for i in range(iterations):
-            z = z * z + c
-            if abs(z) > 2:
+            self.z = self.z * self.z + self.c
+            if abs(self.z) > 2:
                 return i
         return iterations - 1
 

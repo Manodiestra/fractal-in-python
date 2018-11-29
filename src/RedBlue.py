@@ -5,6 +5,7 @@ import Color
 class RedBlue(Gradient):
 
     def __init__(self):
+        super().__init__()
         self.start_b = 255
         self.start_r = 0
         self.start_g = 0

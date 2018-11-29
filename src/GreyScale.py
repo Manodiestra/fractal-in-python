@@ -5,6 +5,7 @@ import Color
 class GreyScale(Gradient):
 
     def __init__(self):
+        super().__init__()
         self.start_b = 0
         self.start_r = 0
         self.start_g = 0

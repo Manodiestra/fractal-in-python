@@ -1,5 +1,3 @@
-import Gradient
-
 class Color():
     """A class to represent RGB colors
 
