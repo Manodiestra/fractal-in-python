@@ -1,0 +1,28 @@
+Welcome to the fractal image generator!
+
+This program will generate a fractal image of your choosing.
+
+The program is run from your commandline interface.
+
+The instructions given here are accurate if you have navigated to the directory
+that contains the progams src folder.
+
+The arguments that need to be given are as follows:
+Argument 1:
+-Start of the Program-
+This is the name of the path to the starting file.
+This will always be input as "src/main.py".
+Argument 2:
+-Fractal Configuration File-
+This is the name of the path to the configuration file that you wish to use.
+You will input "data/..." with the name of the .frac file that you wish to use in place of "..."
+Argument 3:
+-Gradient-
+This argument is optional.
+If you do not provide this argument or spell it wrong you will be defaulted to the default gradient.
+
+Examples:
+Valid examples that will run with this program include:
+python src/main.py data/leaf.frac Greyscale
+python src/main.py data/hourglass.frac RedBlue
+python src/main.py data/elephants.frac
